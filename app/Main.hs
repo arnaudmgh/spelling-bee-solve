@@ -1,6 +1,6 @@
 module Main where
 
-import Lib
+import Lib (isConform)
 
 main :: IO ()
-main = isemail
+main = isConform
