@@ -11,13 +11,12 @@ isConform :: String -> IO ()
 isConform gameRegex = do 
     -- line <- getLine
     line <- getContents
-    -- let emailRegex = "[a-zA-Z0-9+._-]+@[a-zA-Z-]+\\.[a-z]+"
     -- let gameRegex = "\\<[cioytnu]*c[cioytnu]*\\>"
     let output = getAllTextMatches $ line =~ gameRegex :: [String]
-    -- let output = map (\x -> x =~ gameRegex :: String) (lines line)
-    print $ length output
-    putStrLn $ unlines (filter at_least_4_letters output) where
-        at_least_4_letters = (>4) . length
+    let output_final = filter at_least_4_letters output where
+        at_least_4_letters = (>=4) . length
+    putStrLn $ unlines output_final
+    putStrLn $ show (length output_final) ++ " words total"
     -- putStrLn $ unlines output
         
     
