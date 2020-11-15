@@ -1,7 +1,7 @@
 # wordgame
-Extracts all email addresses from standard input, until it hits EOF, and prints the result in the standard output.    
+Prints all the words in english that conform to the NYT game Sophie has on her phone. It uses words_alpha.txt, which has ~370000 english words.
 
-Example:
+Usage:
 ```
-cat ~/Downloads/contacts.csv | stack exec wordgame-exe
+cat words_alpha.txt | stack exec wordgame-exe
 ```
