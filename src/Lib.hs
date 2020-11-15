@@ -6,12 +6,13 @@ module Lib
 import Text.Regex.TDFA
 -- import Text.Regex.TDFA.Text ()
 
-isConform :: IO ()
-isConform = do 
+isConform :: String -> IO ()
+
+isConform gameRegex = do 
     -- line <- getLine
     line <- getContents
     -- let emailRegex = "[a-zA-Z0-9+._-]+@[a-zA-Z-]+\\.[a-z]+"
-    let gameRegex = "\\<[cioytnu]*c[cioytnu]*\\>"
+    -- let gameRegex = "\\<[cioytnu]*c[cioytnu]*\\>"
     let output = getAllTextMatches $ line =~ gameRegex :: [String]
     -- let output = map (\x -> x =~ gameRegex :: String) (lines line)
     print $ length output

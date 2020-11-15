@@ -3,4 +3,5 @@ module Main where
 import Lib (isConform)
 
 main :: IO ()
-main = isConform
+gameRegex = "\\<[cioytnu]*c[cioytnu]*\\>"
+main = isConform gameRegex
