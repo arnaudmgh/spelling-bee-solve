@@ -3,7 +3,7 @@ module Lib
     ( isConform
     ) where
 
-import Text.Regex.PCRE
+import Text.Regex.TDFA
 -- import Text.Regex.TDFA.Text ()
 
 isConform :: IO ()
@@ -11,8 +11,12 @@ isConform = do
     -- line <- getLine
     line <- getContents
     -- let emailRegex = "[a-zA-Z0-9+._-]+@[a-zA-Z-]+\\.[a-z]+"
-    let gameRegex = "^[cioytnu]*c[cioytnu]*\\EOL"
+    let gameRegex = "\\<[cioytnu]*c[cioytnu]*\\>"
     let output = getAllTextMatches $ line =~ gameRegex :: [String]
-    putStrLn $ unlines $ filter at_least_4_letters output where
+    -- let output = map (\x -> x =~ gameRegex :: String) (lines line)
+    print $ length output
+    putStrLn $ unlines (filter at_least_4_letters output) where
         at_least_4_letters = (>4) . length
+    -- putStrLn $ unlines output
+        
     
