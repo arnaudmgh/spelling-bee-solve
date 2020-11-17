@@ -3,5 +3,9 @@ Prints all the words in english that conform to the NYT game Sophie has on her p
 
 Usage:
 ```
+## First build the app:
+stack build
+
+## Then run:
 cat words_alpha.txt | stack exec wordgame-exe
 ```
